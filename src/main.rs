@@ -98,14 +98,14 @@ fn main() -> ExitCode {
 
         let filename = if i_offset == cover_offset {
             // Cover => cover.ext
-            "out/cover.jpg".to_string()
+            "cover.jpg".to_string()
         } else if i_offset == thumb_offset {
             // Skip thumbnail
             continue
         } else {
             // Page => pXXXX.ext
             i_page += 1;
-            std::format!("out/p{:0>4}.jpg", i_page)
+            std::format!("p{:0>4}.jpg", i_page)
         };
 
         zip.start_file(filename, options).expect("Failed to add file to CBZ.");
